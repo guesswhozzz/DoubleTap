@@ -8,7 +8,7 @@ const MainAreaContainer = styled.div`
 `;
 
 export const MainArea = () => {
-  const gamepadcardopen = true;
+  const gamepadcardopen = false;
 
   return (
     <MainAreaContainer>
