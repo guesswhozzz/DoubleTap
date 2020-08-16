@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterContainer = styled.footer`
-  display: flex;
+  display: block;
 `;
 
 export const Footer = () => {

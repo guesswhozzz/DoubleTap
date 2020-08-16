@@ -11,6 +11,7 @@ const GamePadInfoCardContainder = styled.div`
   visibility: ${(props) => (props.status ? "visible" : "hidden")};
   opacity: ${(props) => (props.status ? 1 : 0)};
   position: absolute;
+  z-index: 1;
 `;
 
 const GamePadCard = styled.div`
@@ -103,7 +104,7 @@ const GamepadAbout = styled.div`
   }
 `;
 
-export const GamePadInfoCard = (props) => {
+export const GamePadInfoCard = ({ props }) => {
   const [gamePadObj, setGamePadObj] = useState({
     titleId: "PLAYSTATION(R)3 Controller (Vendor: 054c Product: 0268)",
     objectId: 10,
@@ -112,7 +113,7 @@ export const GamePadInfoCard = (props) => {
     pid: "0268",
     manufacturer: "Sony Corp.",
   });
-  const [visibility, setVisibiluty] = useState(true);
+  const [visibility, setVisibiluty] = useState(false);
   const actionsTest = () => {
     if (visibility) {
       setVisibiluty(false);
@@ -121,8 +122,9 @@ export const GamePadInfoCard = (props) => {
     }
   };
   useEffect(() => {
-    console.log("render");
+    setVisibiluty(props.gamepadconnected);
   }, []);
+
   return (
     <div>
       <button onClick={actionsTest}> ok</button>
